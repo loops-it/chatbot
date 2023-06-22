@@ -450,7 +450,7 @@ const Chatbot = () => {
                         }));
                       }}
                     >
-                      Arabic
+                      Sinhala
                     </button>
                   </div>
                   <div className="col-4 p-1">
@@ -471,7 +471,7 @@ const Chatbot = () => {
                         }));
                       }}
                     >
-                      Arabic
+                      Tamil
                     </button>
                   </div>
                 </div>
