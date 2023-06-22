@@ -359,12 +359,15 @@ const LiveAgent = () => {
                 Hello, Welcome to DFCC Bank. Please select the language to get
                 started.
               </p>
-              <p className="">
-                مرحبًا بكم في DFCC Bank. يرجى تحديد اللغة للبدء.
-              </p>
+              <p className="mt-2">
+                ආයුබෝවන්, DFCC බැංකුව වෙත ඔබව සාදරයෙන් පිළිගනිමු. කරුණාකර ආරම්භ කිරීමට භාෂාව තෝරන්න.
+                </p>
+                <p className="">
+                வணக்கம், DFCC வங்கிக்கு வரவேற்கிறோம். தொடங்குவதற்கு மொழியைத் தேர்ந்தெடுக்கவும்.
+                </p>
 
               <div className="d-flex flex-row welcome-language-select w-100">
-                <div className="col-6 p-1">
+                <div className="col-4 p-1">
                   <button
                     className=" px-3 py-2 rounded"
                     onClick={() => {
@@ -385,27 +388,48 @@ const LiveAgent = () => {
                     English
                   </button>
                 </div>
-                <div className="col-6 p-1">
+                <div className="col-4 p-1">
                   <button
                     className="px-2 py-2 rounded"
                     onClick={() => {
-                      setSelectedLanguage('Arabic');
+                      setSelectedLanguage('Sinhala');
                       setMessageState((state) => ({
                         ...state,
                         messages: [
                           ...state.messages,
                           {
                             type: 'apiMessage',
-                            message: 'الرجاء طرح سؤالك باللغة الإنجليزية.',
+                            message: 'කරුණාකර ඔබේ ප්‍රශ්නය සිංහලෙන් අසන්න.',
                           },
                         ],
                         pending: undefined,
                       }));
                     }}
                   >
-                    Arabic
+                    Sinhala
                   </button>
                 </div>
+                <div className="col-4 p-1">
+                    <button
+                      className="px-3 py-2 rounded"
+                      onClick={() => {
+                        setSelectedLanguage('Tamil');
+                        setMessageState((state) => ({
+                          ...state,
+                          messages: [
+                            ...state.messages,
+                            {
+                              type: 'apiMessage',
+                              message: 'உங்கள் கேள்வியை தமிழில் கேளுங்கள்.',
+                            },
+                          ],
+                          pending: undefined,
+                        }));
+                      }}
+                    >
+                      Tamil
+                    </button>
+                  </div>
               </div>
             </div>
             {/* <p className={`${styles.timeText} text-start  mt-2`}>{time}</p> */}

@@ -403,12 +403,15 @@ const Chatbot = () => {
                   Hello, Welcome to DFCC Bank. Please select the language to get
                   started.
                 </p>
+                <p className="mt-2">
+                ආයුබෝවන්, DFCC බැංකුව වෙත ඔබව සාදරයෙන් පිළිගනිමු. කරුණාකර ආරම්භ කිරීමට භාෂාව තෝරන්න.
+                </p>
                 <p className="">
-                  مرحبًا بكم في DFCC Bank. يرجى تحديد اللغة للبدء.
+                வணக்கம், DFCC வங்கிக்கு வரவேற்கிறோம். தொடங்குவதற்கு மொழியைத் தேர்ந்தெடுக்கவும்.
                 </p>
 
                 <div className="d-flex flex-row welcome-language-select w-100">
-                  <div className="col-6 p-1">
+                  <div className="col-4 p-1">
                     <button
                       className=" px-3 py-2 rounded"
                       onClick={() => {
@@ -429,18 +432,39 @@ const Chatbot = () => {
                       English
                     </button>
                   </div>
-                  <div className="col-6 p-1">
+                  <div className="col-4 p-1">
                     <button
                       className="px-3 py-2 rounded"
                       onClick={() => {
-                        setSelectedLanguage('Arabic');
+                        setSelectedLanguage('Sinhala');
                         setMessageState((state) => ({
                           ...state,
                           messages: [
                             ...state.messages,
                             {
                               type: 'apiMessage',
-                              message: 'الرجاء طرح سؤالك باللغة الإنجليزية.',
+                              message: 'කරුණාකර ඔබේ ප්‍රශ්නය සිංහලෙන් අසන්න.',
+                            },
+                          ],
+                          pending: undefined,
+                        }));
+                      }}
+                    >
+                      Arabic
+                    </button>
+                  </div>
+                  <div className="col-4 p-1">
+                    <button
+                      className="px-3 py-2 rounded"
+                      onClick={() => {
+                        setSelectedLanguage('Tamil');
+                        setMessageState((state) => ({
+                          ...state,
+                          messages: [
+                            ...state.messages,
+                            {
+                              type: 'apiMessage',
+                              message: 'உங்கள் கேள்வியை தமிழில் கேளுங்கள்.',
                             },
                           ],
                           pending: undefined,
@@ -530,10 +554,14 @@ const Chatbot = () => {
               "Hmm.. I'm not sure.",
               "I'm sorry",
               'There is no question',
-              'أنا آسف',
-              'هم، لست متأكدا.',
-              'هم، لست متأكدا',
-              'من دون شك',
+              'ප්රශ්නයක් නැත',
+              'මට කණගාටුයි',
+              'හ්ම්, මට විශ්වාස නෑ',
+              'හ්ම්.. මට විශ්වාස නෑ.',
+              'கேள்வியே இல்லை',
+              'என்னை மன்னிக்கவும்',
+              'ஹ்ம்ம், எனக்கு உறுதியாக தெரியவில்லை',
+              'ம்ம்ம்.. எனக்கு நிச்சயமில்லை.'
             ];
             const isLastApiMessageWithNotSure =
               message.type === 'apiMessage' &&
