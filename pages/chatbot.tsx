@@ -42,7 +42,6 @@ const Chatbot = () => {
   const [waitingLiveAgent, setWaitingLiveAgent] = useState(false);
   const [imgLiveBot, setImgLiveBot] = useState('bot'); //agent
 
-
   useEffect(() => {
     const now = Date.now();
     const newId = now.toString();
@@ -54,7 +53,7 @@ const Chatbot = () => {
     textAreaRef.current?.focus();
   }, []);
 
-  useEffect(() => {}, [
+  useEffect(() => { }, [
     apiMessageFinal,
     liveAgent,
     agentName,
@@ -130,7 +129,7 @@ const Chatbot = () => {
                 setImgLiveBot('agent');
                 setAgentImage(
                   'https://solutions.it-marketing.website/uploads/' +
-                    data.profile_picture,
+                  data.profile_picture,
                 );
               }
               setAgentName(data.agent_name);
@@ -404,10 +403,12 @@ const Chatbot = () => {
                   started.
                 </p>
                 <p className="mt-2">
-                ආයුබෝවන්, DFCC බැංකුව වෙත ඔබව සාදරයෙන් පිළිගනිමු. කරුණාකර ආරම්භ කිරීමට භාෂාව තෝරන්න.
+                  ආයුබෝවන්, DFCC බැංකුව වෙත ඔබව සාදරයෙන් පිළිගනිමු. කරුණාකර
+                  ආරම්භ කිරීමට භාෂාව තෝරන්න.
                 </p>
                 <p className="">
-                வணக்கம், DFCC வங்கிக்கு வரவேற்கிறோம். தொடங்குவதற்கு மொழியைத் தேர்ந்தெடுக்கவும்.
+                  வணக்கம், DFCC வங்கிக்கு வரவேற்கிறோம். தொடங்குவதற்கு மொழியைத்
+                  தேர்ந்தெடுக்கவும்.
                 </p>
 
                 <div className="d-flex flex-row welcome-language-select w-100">
@@ -554,19 +555,25 @@ const Chatbot = () => {
               "Hmm.. I'm not sure.",
               "I'm sorry",
               'There is no question',
+              'Sorry,',
               'ප්රශ්නයක් නැත',
               'මට කණගාටුයි',
+              'සමාවන්න,',
               'හ්ම්, මට විශ්වාස නෑ',
               'හ්ම්.. මට විශ්වාස නෑ.',
               'கேள்வியே இல்லை',
               'என்னை மன்னிக்கவும்',
+              'மன்னிக்கவும்,',
               'ஹ்ம்ம், எனக்கு உறுதியாக தெரியவில்லை',
-              'ம்ம்ம்.. எனக்கு நிச்சயமில்லை.'
+              'ம்ம்ம்.. எனக்கு நிச்சயமில்லை.',
             ];
             const isLastApiMessageWithNotSure =
               message.type === 'apiMessage' &&
               notSureMessages.some((text) => message.message.includes(text)) &&
               index === chatMessages.length - 1;
+
+            const text = message.message;
+            const bulletPoints = text.split(/\n/);
 
             return (
               <>
@@ -582,7 +589,12 @@ const Chatbot = () => {
                       <div
                         className={`${styles.botMessageContainer} ${userHomeStyles} d-flex flex-column my-1`}
                       >
-                        <p className="mb-0">{message.message}</p>
+                        {bulletPoints.map((point, index) => (
+                          <p key={index} className="mb-0">
+                            {point}
+                          </p>
+                        ))}
+                        {/* <p className="mb-0">{message.message}</p> */}
                         {/* {message.type === 'apiMessage' && trMsg && (
                           <div
                             className={`${styles.botMessageContainer} ${styles.apimessage} d-flex flex-column my-1`}
@@ -628,14 +640,20 @@ const Chatbot = () => {
             </div>
           )
         } */}
-          {
-          agentInfoMsg && (
-            <div className="alert paddingalert alert-info mx-3 text-center  alert-dismissible fade show" role="alert">
-             <p className='mb-0 alertAgent' style={{fontSize: "9px !important"}}>Now you are chatting with {agentName}</p>
+          {agentInfoMsg && (
+            <div
+              className="alert paddingalert alert-info mx-3 text-center  alert-dismissible fade show"
+              role="alert"
+            >
+              <p
+                className="mb-0 alertAgent"
+                style={{ fontSize: '9px !important' }}
+              >
+                Now you are chatting with {agentName}
+              </p>
               {/* <button type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> */}
             </div>
-          )
-        }
+          )}
           {closeState && (
             <div className="d-flex bg-chat-close-msg text-center justify-content-center py-3">
               <p className="mb-0">Thank you for contacting us.</p>
