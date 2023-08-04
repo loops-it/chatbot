@@ -41,7 +41,8 @@
     "react-loading-icons": "^1.1.0",
     "react-markdown": "^8.0.5",
     "react-speech-recognition": "^3.10.0",
-    "regenerator-runtime": "^0.13.11"
+    "regenerator-runtime": "^0.13.11",
+    "swiper": "^10.0.4"
   },
   "devDependencies": {
     "@types/bootstrap": "^5.2.6",

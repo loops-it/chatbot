@@ -575,6 +575,11 @@ const Chatbot = () => {
             const text = message.message;
             const bulletPoints = text.split(/\n/);
 
+            const linkifyText = (text: string) => {
+              const urlRegex = /(https?:\/\/[^\s]+)/g;
+              return text.replace(urlRegex, (url: any) => `<a href="${url}" target="_blank">${url}</a>`);
+            };
+
             return (
               <>
                 <div
@@ -589,10 +594,13 @@ const Chatbot = () => {
                       <div
                         className={`${styles.botMessageContainer} ${userHomeStyles} d-flex flex-column my-1`}
                       >
-                        {bulletPoints.map((point, index) => (
+                        {/* {bulletPoints.map((point, index) => (
                           <p key={index} className="mb-0">
                             {point}
                           </p>
+                        ))} */}
+                        {bulletPoints.map((point, index) => (
+                          <p key={index} className="mb-0" dangerouslySetInnerHTML={{ __html: linkifyText(point) }} />
                         ))}
                         {/* <p className="mb-0">{message.message}</p> */}
                         {/* {message.type === 'apiMessage' && trMsg && (

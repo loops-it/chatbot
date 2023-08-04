@@ -221,3 +221,28 @@ aside.EmojiPickerReact.epr-main{
 .paddingalert{
   padding: 8px !important;
 }
+
+.swiper-notification{
+  display: none !important;
+}
+
+.swiper-button-prev, .swiper-rtl .swiper-button-next{
+  top: 75px !important;
+  color: #000 !important;
+  background-color: #fff;
+  border-radius: 100%;
+  width: 30px !important;
+  height: 30px !important;
+}
+.swiper-button-prev:after, .swiper-button-next:after{
+  font-size: 18px !important;
+}
+
+.swiper-button-next, .swiper-rtl .swiper-button-prev{
+  top: 75px !important;
+  color: #000 !important;
+  background-color: #fff;
+  border-radius: 100%;
+  width: 30px !important;
+  height: 30px !important;
+}
