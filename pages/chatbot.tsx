@@ -577,8 +577,15 @@ const Chatbot = () => {
 
             const linkifyText = (text: string) => {
               const urlRegex = /(https?:\/\/[^\s]+)/g;
-              return text.replace(urlRegex, (url: any) => `<a href="${url}" target="_blank">${url}</a>`);
+              const bulletRegex = /^\d+\./;
+
+              const urlText = text.replace(urlRegex, (url: string) => `<a href="${url}" target="_blank">${url}</a>`);
+              const bulletText = urlText.replace(bulletRegex, '&#x2022;');
+              return bulletText;
+
+              // return text.replace(urlRegex, (url: any) => `<a href="${url}" target="_blank">${url}</a>`);
             };
+            
 
             return (
               <>
