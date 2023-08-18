@@ -412,7 +412,7 @@ const Chatbot = () => {
                 </p>
 
                 <div className="d-flex flex-row welcome-language-select w-100">
-                  <div className="col-4 p-1">
+                  <div className="col-4 pe-1">
                     <button
                       className=" px-3 py-2 rounded"
                       onClick={() => {
@@ -433,7 +433,7 @@ const Chatbot = () => {
                       English
                     </button>
                   </div>
-                  <div className="col-4 p-1">
+                  <div className="col-4 p-0">
                     <button
                       className="px-3 py-2 rounded"
                       onClick={() => {
@@ -454,7 +454,7 @@ const Chatbot = () => {
                       Sinhala
                     </button>
                   </div>
-                  <div className="col-4 p-1">
+                  <div className="col-4 ps-1">
                     <button
                       className="px-3 py-2 rounded"
                       onClick={() => {
