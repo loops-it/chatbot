@@ -496,6 +496,7 @@ const Chatbot = () => {
             let icon;
             let className;
             let userHomeStyles;
+            let iconWrapper = 'justify-content-end';
             let wrapper = 'align-items-end justify-content-end';
             let userStyles = 'justify-content-end flex-row-reverse float-end';
 
@@ -524,6 +525,7 @@ const Chatbot = () => {
                 );
               }
               className = styles.apimessage;
+              iconWrapper = 'justify-content-start';
               userStyles = 'justify-content-start flex-row float-start';
               wrapper = 'align-items-start justify-content-start';
             } else if (message.type === 'userMessage') {
@@ -538,6 +540,7 @@ const Chatbot = () => {
                 />
               );
               userHomeStyles = styles.userApiStyles;
+              iconWrapper = 'justify-content-end';
               // The latest message sent by the user will be animated while waiting for a response
               className =
                 loading && index === chatMessages.length - 1
@@ -594,9 +597,9 @@ const Chatbot = () => {
                   className={styles.botMessageContainerWrapper}
                 >
                   <div
-                    className={`${styles.botChatMsgContainer} ${userStyles} d-flex my-2`}
+                    className={`${styles.botChatMsgContainer} ${userStyles} d-flex flex-column-reverse my-2`}
                   >
-                    <div className="d-flex">{icon}</div>
+                    <div className={`${iconWrapper} d-flex `}>{icon}</div>
                     <div className={`${wrapper} d-flex flex-column ms-2`}>
                       <div
                         className={`${styles.botMessageContainer} ${userHomeStyles} d-flex flex-column my-1`}
